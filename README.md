@@ -1,2 +1,1 @@
 # PK-AADAppReg
-test
