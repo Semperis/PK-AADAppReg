@@ -55,6 +55,7 @@ This PoSH script provides the following functions:
 * (3) updateAPIPerms (MUST Be Used With '1', CAN Be Used With '4') => With his Parameter, You Can Specify To Update The API Permissions When Either Creating A New App Registration Or Updating An Existing App Registration;
 * (4) createClientSecret (MUST Be Used With '1', CAN Be Used With '3') => With his Parameter, You Can Specify To Create A New Client Secret When Either Creating A New App Registration Or Updating An Existing App Registration;
 * (5) deleteAllClientSecrets (MUST Be Used With '1') => With his Parameter, You Can Specify To Delete All Existing Secrets Whether Those Are Expired Or Not (Only When App Already Exists!)
+* (6) listAllClientSecrets (Must Be Used Individually Only) => With This Parameter, You Can Specify To List All Existing Client Secrets (Only When App Already Exists!)
 
 ----
 
@@ -78,6 +79,12 @@ Update An Existing Purple Knight Vulnerability Scanning App In AAD With A New Cl
 .\Create-Update-Delete-AAD-PK-Vulnerability-Scanning-App.ps1 -aadTenantFQDN XXX.ONMICROSOFT.COM -appRegDisplayName "Semperis Purple Knight Vulnerability Scanning App" -createOrUpdateApp -createClientSecret
 ~~~~
 
+List All Existing Client Secrets On The Existing Purple Knight Vulnerability Scanning App In AAD
+
+~~~~PowerShell
+.\Create-Update-Delete-AAD-PK-Vulnerability-Scanning-App.ps1 -aadTenantFQDN XXX.ONMICROSOFT.COM -appRegDisplayName "Semperis Purple Knight Vulnerability Scanning App" -listAllClientSecrets
+~~~~
+
 Delete All Existing Client Secrets On The Existing Purple Knight Vulnerability Scanning App In AAD
 
 ~~~~PowerShell
@@ -94,7 +101,7 @@ Delete An Existing Purple Knight Vulnerability Scanning App In AAD
 
 ## NOTES
 
-* Requires AzureAD PoSH Module to connect to Azure AD and perform all actions, except consenting API permissions;
+* Requires Microsoft Graph PoSH Module to connect to Azure AD and perform all actions, except consenting API permissions;
 * Requires Az.Accounts PoSH Module to be able to consent the API permissions;
 * To create, configure AND consent application permissions for the Microsoft Graph, at least membership of the "Global Administrator" built-in role is required;
 * To create and configure (without assigning and consenting application permissions for the Microsoft Graph), at least membership of the "Application Administrator" or "Cloud Application Administrator" built-in role is required;
@@ -105,44 +112,85 @@ Delete An Existing Purple Knight Vulnerability Scanning App In AAD
 ## SAMPLE OUTPUT 1 - PICTURE BELOW
 
 ~~~~PowerShell
-.\Create-Update-Delete-AAD-PK-Vulnerability-Scanning-App.ps1 -aadTenantFQDN XXX.ONMICROSOFT.COM -appRegDisplayName "IAMTEC: App - Semperis Purple Knight" -createOrUpdateApp -updateAPIPerms -createClientSecret
+.\Create-Update-Delete-AAD-PK-Vulnerability-Scanning-App.ps1 -aadTenantFQDN XXX.ONMICROSOFT.COM -appRegDisplayName "Semperis Purple Knight Vulnerability Scanning App" -createOrUpdateApp -updateAPIPerms -createClientSecret
 ~~~~
 
-* Purple Knight Vulnerability Scanning App In AAD ALREADY Exists
-* API Permissions Are Being Updated, And Consented
+* Purple Knight Vulnerability Scanning App In AAD DOES NOT Yet Exist
+* Purple Knight Vulnerability Scanning App Will Be Created
+* API Permissions Are Being Configured, And Consented
 * New Short Lived Client Secret Is Being Created In AAD For The App And Displayed On Screen
 
-![Alt](Images/SampleOutput01.png "Updating The App, Updating Required Permissions, And Creating A Short Lived Client Secret")
+![Alt](Images/SampleOutput01.png "Creating The App, Updating Required Permissions, And Creating A Short Lived Client Secret")
 
 ----
 
 ## SAMPLE OUTPUT 2 - PICTURE BELOW
 
 ~~~~PowerShell
-.\Create-Update-Delete-AAD-PK-Vulnerability-Scanning-App.ps1 -aadTenantFQDN XXX.ONMICROSOFT.COM -appRegDisplayName "IAMTEC: App - Semperis Purple Knight" -createOrUpdateApp -createClientSecret
+.\Create-Update-Delete-AAD-PK-Vulnerability-Scanning-App.ps1 -aadTenantFQDN XXX.ONMICROSOFT.COM -appRegDisplayName "Semperis Purple Knight Vulnerability Scanning App" -createOrUpdateApp -updateAPIPerms -createClientSecret
 ~~~~
 
 * Purple Knight Vulnerability Scanning App In AAD ALREADY Exists
+* API Permissions Are Being Updated If Needed, And Consented
 * New Short Lived Client Secret Is Being Created In AAD For The App And Displayed On Screen
 
-![Alt](Images/SampleOutput02.png "Updating The App With A New Short Lived Client Secret")
+![Alt](Images/SampleOutput02.png "Updating The App, Updating Required Permissions, And Creating A Short Lived Client Secret")
 
 ----
 
 ## SAMPLE OUTPUT 3 - PICTURE BELOW
 
 ~~~~PowerShell
-.\Create-Update-Delete-AAD-PK-Vulnerability-Scanning-App.ps1 -aadTenantFQDN XXX.ONMICROSOFT.COM -appRegDisplayName "IAMTEC: App - Semperis Purple Knight" -deleteApp
+.\Create-Update-Delete-AAD-PK-Vulnerability-Scanning-App.ps1 -aadTenantFQDN XXX.ONMICROSOFT.COM -appRegDisplayName "Semperis Purple Knight Vulnerability Scanning App" -createOrUpdateApp -createClientSecret
 ~~~~
 
-* Deleting The Existing Purple Knight Vulnerability Scanning App From AAD
+* Purple Knight Vulnerability Scanning App In AAD ALREADY Exists
+* New Short Lived Client Secret Is Being Created In AAD For The App And Displayed On Screen
 
-![Alt](Images/SampleOutput03.png "Deleting The App")
+![Alt](Images/SampleOutput03.png "Updating The App With A New Short Lived Client Secret")
 
 ----
 
 ## SAMPLE OUTPUT 4 - PICTURE BELOW
 
+~~~~PowerShell
+.\Create-Update-Delete-AAD-PK-Vulnerability-Scanning-App.ps1 -aadTenantFQDN XXX.ONMICROSOFT.COM -appRegDisplayName "Semperis Purple Knight Vulnerability Scanning App" -listAllClientSecrets
+~~~~
+
+* Purple Knight Vulnerability Scanning App In AAD ALREADY Exists
+* List The Metadata Of All Existing Client Secrets In AAD For The App And Displayed On Screen
+
+![Alt](Images/SampleOutput04.png "List The Metadata Of All Existing Client Secrets")
+
+----
+
+## SAMPLE OUTPUT 5 - PICTURE BELOW
+
+~~~~PowerShell
+.\Create-Update-Delete-AAD-PK-Vulnerability-Scanning-App.ps1 -aadTenantFQDN XXX.ONMICROSOFT.COM -appRegDisplayName "Semperis Purple Knight Vulnerability Scanning App" -createOrUpdateApp -deleteAllClientSecrets
+~~~~
+
+* Purple Knight Vulnerability Scanning App In AAD ALREADY Exists
+* Delete All Existing Client Secrets In AAD For The App And Displayed On Screen
+
+![Alt](Images/SampleOutput05.png "Delete All Existing Client Secrets")
+
+----
+
+## SAMPLE OUTPUT 6 - PICTURE BELOW
+
+~~~~PowerShell
+.\Create-Update-Delete-AAD-PK-Vulnerability-Scanning-App.ps1 -aadTenantFQDN XXX.ONMICROSOFT.COM -appRegDisplayName "Semperis Purple Knight Vulnerability Scanning App" -deleteApp
+~~~~
+
+* Deleting The Existing Purple Knight Vulnerability Scanning App From AAD
+
+![Alt](Images/SampleOutput06.png "Deleting The App")
+
+----
+
+## SAMPLE OUTPUT 7 - PICTURE BELOW
+
 * Purple Knight Main Screen Sample Output
 
-![Alt](Images/SampleOutput04.png "Purple Knight Main Screen Sample Output")
+![Alt](Images/SampleOutput07.png "Purple Knight Main Screen Sample Output")
