@@ -61,7 +61,7 @@ This PoSH script provides the following functions:
 
 ## EXAMPLES
 
-Create A Purple Knight Vulnerability Scanning App In AAD
+Create A Purple Knight Vulnerability Scanning App In AAD OR Update The Purple Knight Vulnerability Scanning App In AAD With Updated API Permissions And A New Client Secret (Existing Client Secrets WILL NOT Be Deleted!)
 
 ~~~~PowerShell
 .\Create-Update-Delete-AAD-PK-Vulnerability-Scanning-App.ps1 -aadTenantFQDN XXX.ONMICROSOFT.COM -appRegDisplayName "Semperis Purple Knight Vulnerability Scanning App" -createOrUpdateApp -updateAPIPerms -createClientSecret
