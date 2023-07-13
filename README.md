@@ -18,6 +18,7 @@ This PoSH script provides the following functions:
   * AdministrativeUnit.Read.All;
   * Application.Read.All;
   * AuditLog.Read.All;
+  * Device.Read.All;
   * Directory.Read.All;
   * Group.Read.All;
   * Policy.Read.All;
