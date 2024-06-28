@@ -15,15 +15,17 @@ This PoSH script provides the following functions:
 * Create and update the app registration in AAD for PK To Be Able To Scan For Vulnerabilities In AAD;
 * Delete the app registration in AAD;
 * Assign the following MSFT Graph Application Permissions and consent those, when either creating or updating the app;
+([Create and Configure Application Registration - Required Permissions](https://docs.purple-knight.com/community/purpleknight/pk-create-configure-app-registration.htm?tocpath=Purple%20Knight%7CPurple%20Knight%20User%20Guide%7CGetting%20Started%7C_____3))
   * AdministrativeUnit.Read.All;
   * Application.Read.All;
   * AuditLog.Read.All;
   * Device.Read.All;
   * Directory.Read.All;
-  * Group.Read.All;
+  * GroupMember.Read.All;
   * Policy.Read.All;
   * PrivilegedAccess.Read.AzureAD;
   * Reports.Read.All;
+  * RoleEligibilitySchedule.Read.Directory;
   * RoleManagement.Read.All;
   * RoleManagement.Read.Directory;
   * User.Read.All;
