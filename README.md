@@ -33,6 +33,8 @@ This PoSH script provides the following functions:
   * RoleManagement.Read.Directory
   * User.Read.All
   * UserAuthenticationMethod.Read.All
+  * MailboxSettings.Read
+  * OnPremDirectorySynchronization.Read.All
 * Create an client secret that by default is valid for an hour, when either creating or updating the app. If needed it is possible to provide a customer lifetime in days for the client secret. This is not recommended as it may be a security issue;
 * Deleting all client secrets from the Application Registration in Entra ID;
 * Display the tenant ID, the application ID, the assigned and consented permissions, and the client secret to be used in the Purple Knight Application.
