@@ -2,7 +2,7 @@
 
 ## SCRIPT
 
-See The File '[Create-Update-Delete-EID-PK-Vulnerability-Scanning-App.ps1](https://github.com/Semperis/PK-AADAppReg/blob/main/Create-Update-Delete-EID-PK-Vulnerability-Scanning-App.ps1)' Above.
+See The File '[Create-Update-Delete-EID-PK-Vulnerability-Scanning-App.ps1](Create-Update-Delete-EID-PK-Vulnerability-Scanning-App.ps1)' Above.
 
 ----
 
